@@ -1,109 +1,144 @@
-﻿void Method1()
-{
-    Console.WriteLine("Автор ...");
-}
+﻿// void Method1()
+// {
+//     Console.WriteLine("Автор ...");
+// }
 
-//Method2
+// //Method2
 
-void Method2(string msg)
-{
-    Console.WriteLine(msg);
-}
+// void Method2(string msg)
+// {
+//     Console.WriteLine(msg);
+// }
 
-//Method2(msg: "Текст сообщения");
+// //Method2(msg: "Текст сообщения");
 
-//method 3
-void Method21(string msg, int count)
-{
-    int i = 0;
-    while (i < count)
-    {
-        Console.WriteLine(msg);
-        i++;
-    }
-}
+// //method 3
+// void Method21(string msg, int count)
+// {
+//     int i = 0;
+//     while (i < count)
+//     {
+//         Console.WriteLine(msg);
+//         i++;
+//     }
+// }
 
-//Method21(msg: "Текст", count: 7);
+// //Method21(msg: "Текст", count: 7);
 
-//vid3
-int Method3()
-{
-    return DateTime.Now.Year;
-}
+// //vid3
+// int Method3()
+// {
+//     return DateTime.Now.Year;
+// }
 
-int year = Method3();
-//Console.WriteLine(year);
+// int year = Method3();
+// //Console.WriteLine(year);
 
 
-//vid4
+// //vid4
+
+// // string Method4(int count, string c)
+// // {
+// //     int i = 0;
+// //     string result = String.Empty;
+
+// //     while (i < count)
+// //     {
+// //         result = result + c;
+// //         i++;
+// //     }
+// //     return result;
+// // }
+
+// // string res = Method4(10, "1vfv");
+// // Console.WriteLine(res);
 
 // string Method4(int count, string c)
 // {
-//     int i = 0;
 //     string result = String.Empty;
-
-//     while (i < count)
+//     for (int i = 0; i < count; i++)
 //     {
 //         result = result + c;
-//         i++;
 //     }
 //     return result;
 // }
 
 // string res = Method4(10, "1vfv");
-// Console.WriteLine(res);
+// //Console.WriteLine(res);
 
-string Method4(int count, string c)
-{
-    string result = String.Empty;
-    for (int i = 0; i < count; i++)
-    {
-        result = result + c;
-    }
-    return result;
-}
+// // for (int i=2; i<=10; i++)
+// // {
+// //     for (int j=2; j<=10; j++)
+// //     {
+// //         Console.WriteLine($"{i} x {j} = {i*j}");
+// //     }
+// //     Console.WriteLine();
+// // }
 
-string res = Method4(10, "1vfv");
-//Console.WriteLine(res);
+// string text = "- Я думаю, - сказал князь, улыбаясь, - что, "
+// + "ежели бы вас послали вместо нашего милого Винценгероде,"
+// + " вы бы взяли приступом согласие прусского короля. "
+// + "Вы так красноречивы. Вы дадите мне чаю?";
 
-// for (int i=2; i<=10; i++)
+// //string s = "qwerty"
+// //              012
+// // s[3] //r
+
+// string Replace(string text, char oldValue, char newValue)
 // {
-//     for (int j=2; j<=10; j++)
+//     string result = String.Empty;
+//     int lenght = text.Length;
+//     for (int i = 0; i < lenght; i++)
 //     {
-//         Console.WriteLine($"{i} x {j} = {i*j}");
+//         if (text[i] == oldValue) result = result + $"{newValue}";
+//         else result = result + $"{text[i]}";
 //     }
-//     Console.WriteLine();
+//     return result;
 // }
 
-string text = "- Я думаю, - сказал князь, улыбаясь, - что, "
-+ "ежели бы вас послали вместо нашего милого Винценгероде,"
-+ " вы бы взяли приступом согласие прусского короля. "
-+ "Вы так красноречивы. Вы дадите мне чаю?";
+// // string newText = Replace(text, ' ', '-');
 
-//string s = "qwerty"
-//              012
-// s[3] //r
+// // Console.WriteLine(newText);
+// // Console.WriteLine();
+// // newText = Replace(text, 'к', 'К');
+// // Console.WriteLine(newText);
 
-string Replace(string text, char oldValue, char newValue)
+// // Console.WriteLine(newText);
+// // Console.WriteLine();
+// // newText = Replace(text, 'с', 'С');
+// // Console.WriteLine(newText);
+
+int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
+
+void PrintArray(int[] array)
 {
-    string result = String.Empty;
-    int lenght = text.Length;
-    for (int i = 0; i < lenght; i++)
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
     {
-        if (text[i] == oldValue) result = result + $"{newValue}";
-        else result = result + $"{text[i]}";
+        Console.Write($"{array[i]} ");
     }
-    return result;
+    Console.WriteLine();
 }
 
-string newText = Replace(text, ' ', '-');
+void SelectionSort(int[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPosition = i;
 
-Console.WriteLine(newText);
-Console.WriteLine();
-newText = Replace(text, 'к', 'К');
-Console.WriteLine(newText);
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] > array[minPosition]) minPosition = j;
+          //  if (array[j] < array[minPosition]) minPosition = j;
+        }
 
-Console.WriteLine(newText);
-Console.WriteLine();
-newText = Replace(text, 'с', 'С');
-Console.WriteLine(newText);
+        int temporary = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temporary;
+    }
+
+}
+PrintArray(arr);
+SelectionSort(arr);
+
+PrintArray(arr);
